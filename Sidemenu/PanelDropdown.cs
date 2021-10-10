@@ -15,6 +15,8 @@ namespace Sidemenu
         private Button _buttonMenu;
         private bool _isCollapsed = true;
 
+        private bool _setup = false;
+
         public PanelDropdown()
         {
             _buttonMenu = new Button();
@@ -33,9 +35,34 @@ namespace Sidemenu
 
             this.Controls.Add(_buttonMenu);
 
+
             _timer = new Timer();
             _timer.Interval = 15;
             _timer.Tick += _timer_Tick;
+        }
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            if (!_setup)
+            {
+                List<Control> control = new List<Control>();
+                foreach (Control item in Controls)
+                {
+                    control.Add(item);
+                }
+
+                control.Reverse();
+                Controls.Clear();
+
+
+                foreach (var item in control)
+                {
+                    Controls.Add(item);
+                }                
+
+                _setup = true;
+            }
+            base.OnPaint(e);    
         }
 
         private void _timer_Tick(object sender, EventArgs e)
