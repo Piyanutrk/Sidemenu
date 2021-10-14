@@ -2,9 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Sidemenu
@@ -20,20 +17,26 @@ namespace Sidemenu
         public PanelDropdown()
         {
             _buttonMenu = new Button();
+            _buttonMenu.Name = "Menu";
             _buttonMenu.Dock = DockStyle.Top;
-            _buttonMenu.Height = 50;
             _buttonMenu.FlatStyle = FlatStyle.Flat;
             _buttonMenu.FlatAppearance.BorderSize = 0;
             _buttonMenu.BackColor = Color.Navy;
-            _buttonMenu.Text = "Button Menu";
             _buttonMenu.ForeColor = Color.White;
-            _buttonMenu.Font = new Font(this.Font.Name, 12f, FontStyle.Bold);
             _buttonMenu.Image = Resources.caret_down;
             _buttonMenu.TextImageRelation = TextImageRelation.TextBeforeImage;
             _buttonMenu.TextAlign = ContentAlignment.MiddleRight;
             _buttonMenu.Click += ButtonMenu_Click;
 
             this.Controls.Add(_buttonMenu);
+
+            Panel panel = new Panel()
+            {
+                Name = "layout1",
+                Dock = DockStyle.Fill
+            };
+
+            this.Controls.Add(panel);
 
 
             _timer = new Timer();
@@ -45,24 +48,38 @@ namespace Sidemenu
         {
             if (!_setup)
             {
-                List<Control> control = new List<Control>();
+                List<Control> subMenu = new List<Control>();
+                List<Control> menu = new List<Control>();
+
                 foreach (Control item in Controls)
                 {
-                    control.Add(item);
+                    if (!item.Name.Equals("Menu") && !item.Name.Equals("layout1"))
+                    {
+                        subMenu.Add(item);
+                    }
+                    else
+                    {
+                        menu.Add(item);
+                    }
                 }
 
-                control.Reverse();
+                //subMenu.Reverse();
+                subMenu.AddRange(menu);
                 Controls.Clear();
 
 
-                foreach (var item in control)
+                foreach (var item in subMenu)
                 {
                     Controls.Add(item);
-                }                
+                }
 
                 _setup = true;
             }
-            base.OnPaint(e);    
+            _buttonMenu.Text = _menuText;
+            _buttonMenu.Height = _menuHeight;
+            _buttonMenu.Font = new Font(this.Font.Name, _menuFontSize, FontStyle.Bold);
+
+            base.OnPaint(e);
         }
 
         private void _timer_Tick(object sender, EventArgs e)
@@ -95,5 +112,44 @@ namespace Sidemenu
         {
             _timer.Start();
         }
+
+        private string _menuText = "Button Menu";
+
+        public string MenuText
+        {
+            get { return _menuText; }
+            set
+            {
+                _menuText = value;
+                Invalidate();
+            }
+        }
+
+        private int _menuHeight = 50;
+
+        public int MenuHeight
+        {
+            get { return _menuHeight; }
+            set
+            {
+                _menuHeight = value;
+                Invalidate();
+            }
+        }
+
+        private float _menuFontSize = 12f;
+
+        public float MenuFontSize
+        {
+            get { return _menuFontSize; }
+            set
+            {
+                _menuFontSize = value;
+                Invalidate();
+            }
+        }
+
+
+
     }
 }

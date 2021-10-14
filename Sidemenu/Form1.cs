@@ -13,46 +13,36 @@ namespace Sidemenu
 {
     public partial class Form1 : Form
     {
-        private bool _isCollapsed = true;
         public Form1()
         {
             InitializeComponent();
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void button_Click(object sender, EventArgs e)
         {
-            if (_isCollapsed)
-            {
-                button2.Image = Resources.caret_arrow_up;
-                panelButton2Dropdown.Height += 10;
-                if (panelButton2Dropdown.Size == panelButton2Dropdown.MaximumSize)
-                {
-                    timer1.Stop();
-                    _isCollapsed = false;
-                }
-                
-            }
-            else
-            {
-                button2.Image = Resources.caret_down;
+            ClearSelect(this);
 
-                panelButton2Dropdown.Height -= 10;
-                if (panelButton2Dropdown.Size == panelButton2Dropdown.MinimumSize)
-                {
-                    timer1.Stop();
-                    _isCollapsed = true;
-                }
-            }
+            Button button = sender as Button;
+            button.BackColor = Color.Yellow;
+            button.ForeColor = Color.Black;
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void ClearSelect(Control root)
         {
-            timer1.Start();
-        }
+            foreach (Control control in root.Controls)
+            {
+                if (control.GetType() == typeof(Button))
+                {
+                    if (control.BackColor == Color.Yellow)
+                    {
+                        control.BackColor = Color.Blue;
+                        control.ForeColor = Color.White;
 
-        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
+                        break;
+                    }
+                }
+                ClearSelect(control);
+            }
         }
     }
 }
