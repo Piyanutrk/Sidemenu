@@ -29,14 +29,15 @@ namespace Sidemenu
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.panelDropdown3 = new Sidemenu.PanelDropdown();
             this.button16 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.panelDropdown4 = new Sidemenu.PanelDropdown();
             this.button17 = new System.Windows.Forms.Button();
             this.button18 = new System.Windows.Forms.Button();
@@ -55,12 +56,15 @@ namespace Sidemenu
             this.button29 = new System.Windows.Forms.Button();
             this.button30 = new System.Windows.Forms.Button();
             this.button31 = new System.Windows.Forms.Button();
+            this.panelDropdown7 = new Sidemenu.PanelDropdown();
+            this.button32 = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
-            this.panelDropdown3.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
+            this.panelDropdown3.SuspendLayout();
             this.panelDropdown4.SuspendLayout();
             this.panelDropdown5.SuspendLayout();
             this.panelDropdown6.SuspendLayout();
+            this.panelDropdown7.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -73,6 +77,21 @@ namespace Sidemenu
             this.panel2.Size = new System.Drawing.Size(1000, 646);
             this.panel2.TabIndex = 0;
             // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.Controls.Add(this.panelDropdown3);
+            this.flowLayoutPanel2.Controls.Add(this.panelDropdown4);
+            this.flowLayoutPanel2.Controls.Add(this.panelDropdown5);
+            this.flowLayoutPanel2.Controls.Add(this.panelDropdown6);
+            this.flowLayoutPanel2.Controls.Add(this.panelDropdown7);
+            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(207, 646);
+            this.flowLayoutPanel2.TabIndex = 1;
+            // 
             // panelDropdown3
             // 
             this.panelDropdown3.Controls.Add(this.button16);
@@ -83,8 +102,12 @@ namespace Sidemenu
             this.panelDropdown3.Location = new System.Drawing.Point(1, 1);
             this.panelDropdown3.Margin = new System.Windows.Forms.Padding(1);
             this.panelDropdown3.MaximumSize = new System.Drawing.Size(200, 200);
+            this.panelDropdown3.MenuBgColor = System.Drawing.Color.Navy;
             this.panelDropdown3.MenuFontSize = 10F;
+            this.panelDropdown3.MenuForeColor = System.Drawing.Color.White;
             this.panelDropdown3.MenuHeight = 40;
+            this.panelDropdown3.MenuImageDown = ((System.Drawing.Image)(resources.GetObject("panelDropdown3.MenuImageDown")));
+            this.panelDropdown3.MenuImageUp = ((System.Drawing.Image)(resources.GetObject("panelDropdown3.MenuImageUp")));
             this.panelDropdown3.MenuText = "Main";
             this.panelDropdown3.MinimumSize = new System.Drawing.Size(200, 40);
             this.panelDropdown3.Name = "panelDropdown3";
@@ -161,20 +184,6 @@ namespace Sidemenu
             this.button12.UseVisualStyleBackColor = false;
             this.button12.Click += new System.EventHandler(this.button_Click);
             // 
-            // flowLayoutPanel2
-            // 
-            this.flowLayoutPanel2.Controls.Add(this.panelDropdown3);
-            this.flowLayoutPanel2.Controls.Add(this.panelDropdown4);
-            this.flowLayoutPanel2.Controls.Add(this.panelDropdown5);
-            this.flowLayoutPanel2.Controls.Add(this.panelDropdown6);
-            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(207, 646);
-            this.flowLayoutPanel2.TabIndex = 1;
-            // 
             // panelDropdown4
             // 
             this.panelDropdown4.Controls.Add(this.button17);
@@ -185,8 +194,12 @@ namespace Sidemenu
             this.panelDropdown4.Location = new System.Drawing.Point(1, 43);
             this.panelDropdown4.Margin = new System.Windows.Forms.Padding(1);
             this.panelDropdown4.MaximumSize = new System.Drawing.Size(200, 200);
+            this.panelDropdown4.MenuBgColor = System.Drawing.Color.Navy;
             this.panelDropdown4.MenuFontSize = 10F;
+            this.panelDropdown4.MenuForeColor = System.Drawing.Color.White;
             this.panelDropdown4.MenuHeight = 40;
+            this.panelDropdown4.MenuImageDown = ((System.Drawing.Image)(resources.GetObject("panelDropdown4.MenuImageDown")));
+            this.panelDropdown4.MenuImageUp = ((System.Drawing.Image)(resources.GetObject("panelDropdown4.MenuImageUp")));
             this.panelDropdown4.MenuText = "Main2";
             this.panelDropdown4.MinimumSize = new System.Drawing.Size(200, 40);
             this.panelDropdown4.Name = "panelDropdown4";
@@ -273,8 +286,12 @@ namespace Sidemenu
             this.panelDropdown5.Location = new System.Drawing.Point(1, 85);
             this.panelDropdown5.Margin = new System.Windows.Forms.Padding(1);
             this.panelDropdown5.MaximumSize = new System.Drawing.Size(200, 200);
+            this.panelDropdown5.MenuBgColor = System.Drawing.Color.Navy;
             this.panelDropdown5.MenuFontSize = 10F;
+            this.panelDropdown5.MenuForeColor = System.Drawing.Color.White;
             this.panelDropdown5.MenuHeight = 40;
+            this.panelDropdown5.MenuImageDown = ((System.Drawing.Image)(resources.GetObject("panelDropdown5.MenuImageDown")));
+            this.panelDropdown5.MenuImageUp = ((System.Drawing.Image)(resources.GetObject("panelDropdown5.MenuImageUp")));
             this.panelDropdown5.MenuText = "Main3";
             this.panelDropdown5.MinimumSize = new System.Drawing.Size(200, 40);
             this.panelDropdown5.Name = "panelDropdown5";
@@ -356,8 +373,12 @@ namespace Sidemenu
             this.panelDropdown6.Location = new System.Drawing.Point(1, 127);
             this.panelDropdown6.Margin = new System.Windows.Forms.Padding(1);
             this.panelDropdown6.MaximumSize = new System.Drawing.Size(200, 200);
+            this.panelDropdown6.MenuBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.panelDropdown6.MenuFontSize = 10F;
+            this.panelDropdown6.MenuForeColor = System.Drawing.Color.Black;
             this.panelDropdown6.MenuHeight = 40;
+            this.panelDropdown6.MenuImageDown = ((System.Drawing.Image)(resources.GetObject("panelDropdown6.MenuImageDown")));
+            this.panelDropdown6.MenuImageUp = ((System.Drawing.Image)(resources.GetObject("panelDropdown6.MenuImageUp")));
             this.panelDropdown6.MenuText = "Main4";
             this.panelDropdown6.MinimumSize = new System.Drawing.Size(200, 40);
             this.panelDropdown6.Name = "panelDropdown6";
@@ -429,17 +450,48 @@ namespace Sidemenu
             this.button31.Text = "button31";
             this.button31.UseVisualStyleBackColor = false;
             // 
+            // panelDropdown7
+            // 
+            this.panelDropdown7.Controls.Add(this.button32);
+            this.panelDropdown7.Location = new System.Drawing.Point(3, 171);
+            this.panelDropdown7.MaximumSize = new System.Drawing.Size(200, 100);
+            this.panelDropdown7.MenuBgColor = System.Drawing.Color.Navy;
+            this.panelDropdown7.MenuFontSize = 12F;
+            this.panelDropdown7.MenuForeColor = System.Drawing.Color.White;
+            this.panelDropdown7.MenuHeight = 50;
+            this.panelDropdown7.MenuImageDown = global::Sidemenu.Properties.Resources.caret_down;
+            this.panelDropdown7.MenuImageUp = global::Sidemenu.Properties.Resources.caret_arrow_up;
+            this.panelDropdown7.MenuText = "Button Menu";
+            this.panelDropdown7.MinimumSize = new System.Drawing.Size(200, 50);
+            this.panelDropdown7.Name = "panelDropdown7";
+            this.panelDropdown7.Size = new System.Drawing.Size(200, 50);
+            this.panelDropdown7.TabIndex = 2;
+            // 
+            // button32
+            // 
+            this.button32.BackColor = System.Drawing.Color.Blue;
+            this.button32.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button32.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button32.ForeColor = System.Drawing.Color.White;
+            this.button32.Location = new System.Drawing.Point(0, 50);
+            this.button32.Name = "button32";
+            this.button32.Size = new System.Drawing.Size(200, 30);
+            this.button32.TabIndex = 7;
+            this.button32.Text = "button32";
+            this.button32.UseVisualStyleBackColor = false;
+            // 
             // Form1
             // 
             this.ClientSize = new System.Drawing.Size(1000, 646);
             this.Controls.Add(this.panel2);
             this.Name = "Form1";
             this.panel2.ResumeLayout(false);
-            this.panelDropdown3.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
+            this.panelDropdown3.ResumeLayout(false);
             this.panelDropdown4.ResumeLayout(false);
             this.panelDropdown5.ResumeLayout(false);
             this.panelDropdown6.ResumeLayout(false);
+            this.panelDropdown7.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -489,6 +541,8 @@ namespace Sidemenu
         private System.Windows.Forms.Button button29;
         private System.Windows.Forms.Button button30;
         private System.Windows.Forms.Button button31;
+        private PanelDropdown panelDropdown7;
+        private System.Windows.Forms.Button button32;
     }
 }
 

@@ -14,6 +14,8 @@ namespace Sidemenu
 
         private bool _setup = false;
 
+        private Image _menuImage;
+
         public PanelDropdown()
         {
             _buttonMenu = new Button();
@@ -21,9 +23,6 @@ namespace Sidemenu
             _buttonMenu.Dock = DockStyle.Top;
             _buttonMenu.FlatStyle = FlatStyle.Flat;
             _buttonMenu.FlatAppearance.BorderSize = 0;
-            _buttonMenu.BackColor = Color.Navy;
-            _buttonMenu.ForeColor = Color.White;
-            _buttonMenu.Image = Resources.caret_down;
             _buttonMenu.TextImageRelation = TextImageRelation.TextBeforeImage;
             _buttonMenu.TextAlign = ContentAlignment.MiddleRight;
             _buttonMenu.Click += ButtonMenu_Click;
@@ -73,8 +72,15 @@ namespace Sidemenu
                     Controls.Add(item);
                 }
 
+                //_buttonMenu.Image = _menuImageDown;
+
                 _setup = true;
             }
+
+            _buttonMenu.Image = _menuImage != null ? _menuImage : _menuImageDown;
+
+            _buttonMenu.BackColor = _menuBgColor;
+            _buttonMenu.ForeColor = _menuForeColor;
             _buttonMenu.Text = _menuText;
             _buttonMenu.Height = _menuHeight;
             _buttonMenu.Font = new Font(this.Font.Name, _menuFontSize, FontStyle.Bold);
@@ -86,7 +92,9 @@ namespace Sidemenu
         {
             if (_isCollapsed)
             {
-                _buttonMenu.Image = Resources.caret_arrow_up;
+                _buttonMenu.Image = _menuImageUp;
+                _menuImage = _menuImageUp;
+
                 this.Height += 10;
                 if (this.Size == this.MaximumSize)
                 {
@@ -97,7 +105,8 @@ namespace Sidemenu
             }
             else
             {
-                _buttonMenu.Image = Resources.caret_down;
+                _buttonMenu.Image = _menuImageDown;
+                _menuImage = _menuImageDown;
 
                 this.Height -= 10;
                 if (this.Size == this.MinimumSize)
@@ -149,7 +158,53 @@ namespace Sidemenu
             }
         }
 
+        private Color _menuBgColor = Color.Navy;
 
+        public Color MenuBgColor
+        {
+            get { return _menuBgColor; }
+            set
+            {
+                _menuBgColor = value;
+                Invalidate();
+            }
+        }
+
+        private Color _menuForeColor = Color.White;
+
+        public Color MenuForeColor
+        {
+            get { return _menuForeColor; }
+            set
+            {
+                _menuForeColor = value;
+                Invalidate();
+            }
+        }
+
+        private Image _menuImageDown;
+
+        public Image MenuImageDown
+        {
+            get { return _menuImageDown; }
+            set
+            {
+                _menuImageDown = value;
+                Invalidate();
+            }
+        }
+
+        private Image _menuImageUp;
+
+        public Image MenuImageUp
+        {
+            get { return _menuImageUp; }
+            set
+            {
+                _menuImageUp = value;
+                Invalidate();
+            }
+        }
 
     }
 }
